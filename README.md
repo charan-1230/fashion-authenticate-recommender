@@ -1,5 +1,3 @@
-# Welcome to your Lovable project
-
 ## Project info
 
 **URL**: [fashion-authenticate-recommender.lovable.app](https://fashion-authenticate-recommender.lovable.app/)
@@ -8,9 +6,7 @@
 
 There are several ways of editing your application.
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Requiremnets
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -18,7 +14,7 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone "https://github.com/charan-1230/fashion-authenticate-recommender"
 
 # Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
@@ -53,4 +49,6 @@ This project is built with .
 - React
 - shadcn-ui
 - Tailwind CSS
+
+Docs link: [https://spotty-oxygen-f5c.notion.site/Fashion-Authenticate-Recommender-Application-1c26901fec9b80dab33ef7e749831716]
 
