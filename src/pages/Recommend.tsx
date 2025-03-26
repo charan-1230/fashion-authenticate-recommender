@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import SectionHeading from '@/components/common/SectionHeading';
 import StyleProfile from '@/components/recommendation/StyleProfile';
-import OutfitRecommendation from '@/components/recommendation/OutfitRecommendation';
+import OutfitRecommendationWrapper from '@/components/recommendation/OutfitRecommendationWrapper';
 import AnimatedButton from '@/components/common/AnimatedButton';
 import { Sparkles, RefreshCw, Upload } from 'lucide-react';
 
@@ -13,7 +13,7 @@ const recommendedItems = [
     id: '1',
     name: 'Slim Fit Cotton Shirt',
     brand: 'Minimalist',
-    price: 89,
+    price: 2499,
     score: 95,
     image: 'https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?q=80&w=2787&auto=format&fit=crop',
   },
@@ -21,7 +21,7 @@ const recommendedItems = [
     id: '2',
     name: 'Tapered Wool Trousers',
     brand: 'Premium Co.',
-    price: 120,
+    price: 3499,
     score: 92,
     image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=2940&auto=format&fit=crop',
   },
@@ -29,7 +29,7 @@ const recommendedItems = [
     id: '3',
     name: 'Leather Minimal Jacket',
     brand: 'Artisan',
-    price: 250,
+    price: 7999,
     score: 88,
     image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=2936&auto=format&fit=crop',
   },
@@ -37,7 +37,7 @@ const recommendedItems = [
     id: '4',
     name: 'Classic White Sneakers',
     brand: 'Urban',
-    price: 110,
+    price: 4299,
     score: 87,
     image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=2864&auto=format&fit=crop',
   },
@@ -45,7 +45,7 @@ const recommendedItems = [
     id: '5',
     name: 'Cashmere Scarf',
     brand: 'Luxe',
-    price: 85,
+    price: 1999,
     score: 82,
     image: 'https://images.unsplash.com/photo-1584736286279-5d85e833eea6?q=80&w=2874&auto=format&fit=crop',
   },
@@ -53,7 +53,7 @@ const recommendedItems = [
     id: '6',
     name: 'Minimalist Watch',
     brand: 'Tempus',
-    price: 175,
+    price: 5999,
     score: 79,
     image: 'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=2940&auto=format&fit=crop',
   },
@@ -147,7 +147,7 @@ const Recommend = () => {
               </div>
             ) : (
               <div className="space-y-8">
-                <OutfitRecommendation items={recommendedItems} />
+                <OutfitRecommendationWrapper items={recommendedItems} />
                 
                 <div className="mt-8 p-6 bg-gray-50 rounded-lg">
                   <h3 className="text-lg font-semibold mb-4">About Your Recommendations</h3>

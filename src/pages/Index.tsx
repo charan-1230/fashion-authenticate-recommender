@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '@/components/layout/Layout';
@@ -9,7 +8,7 @@ import BlurImage from '@/components/common/BlurImage';
 import { Smartphone, Sparkles, ShoppingBag, Shield, Scan, CameraIcon } from 'lucide-react';
 import NFCAuthentication from '@/components/authentication/NFCAuthentication';
 import StyleProfile from '@/components/recommendation/StyleProfile';
-import OutfitRecommendation from '@/components/recommendation/OutfitRecommendation';
+import OutfitRecommendationWrapper from '@/components/recommendation/OutfitRecommendationWrapper';
 
 // Sample outfit recommendation data
 const recommendedItems = [
@@ -17,7 +16,7 @@ const recommendedItems = [
     id: '1',
     name: 'Slim Fit Cotton Shirt',
     brand: 'Minimalist',
-    price: 89,
+    price: 2499,
     score: 95,
     image: 'https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?q=80&w=2787&auto=format&fit=crop',
   },
@@ -25,7 +24,7 @@ const recommendedItems = [
     id: '2',
     name: 'Tapered Wool Trousers',
     brand: 'Premium Co.',
-    price: 120,
+    price: 3499,
     score: 92,
     image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=2940&auto=format&fit=crop',
   },
@@ -33,7 +32,7 @@ const recommendedItems = [
     id: '3',
     name: 'Leather Minimal Jacket',
     brand: 'Artisan',
-    price: 250,
+    price: 7999,
     score: 88,
     image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=2936&auto=format&fit=crop',
   },
@@ -238,7 +237,7 @@ const Index = () => {
       <section className="section-container bg-gray-50">
         <div className="page-container">
           <div className="reveal opacity-0">
-            <OutfitRecommendation items={recommendedItems} />
+            <OutfitRecommendationWrapper items={recommendedItems} />
           </div>
         </div>
       </section>
