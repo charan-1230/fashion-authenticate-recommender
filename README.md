@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: fashion-authenticate-recommender.lovable.app
+**URL**: [fashion-authenticate-recommender.lovable.app](https://fashion-authenticate-recommender.lovable.app/)
 
 ## How can I edit this code?
 
