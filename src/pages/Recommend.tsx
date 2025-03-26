@@ -12,7 +12,7 @@ const recommendedItems = [
   {
     id: '1',
     name: 'Slim Fit Cotton Shirt',
-    brand: 'Minimalist',
+    brand: 'Adidas',
     price: 2499,
     score: 95,
     image: 'https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?q=80&w=2787&auto=format&fit=crop',
@@ -20,7 +20,7 @@ const recommendedItems = [
   {
     id: '2',
     name: 'Tapered Wool Trousers',
-    brand: 'Premium Co.',
+    brand: 'Adidas',
     price: 3499,
     score: 92,
     image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=2940&auto=format&fit=crop',
@@ -28,7 +28,7 @@ const recommendedItems = [
   {
     id: '3',
     name: 'Leather Minimal Jacket',
-    brand: 'Artisan',
+    brand: 'Adidas',
     price: 7999,
     score: 88,
     image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=2936&auto=format&fit=crop',
@@ -36,7 +36,7 @@ const recommendedItems = [
   {
     id: '4',
     name: 'Classic White Sneakers',
-    brand: 'Urban',
+    brand: 'Adidas',
     price: 4299,
     score: 87,
     image: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=2864&auto=format&fit=crop',
@@ -44,7 +44,7 @@ const recommendedItems = [
   {
     id: '5',
     name: 'Cashmere Scarf',
-    brand: 'Luxe',
+    brand: 'Adidas',
     price: 1999,
     score: 82,
     image: 'https://images.unsplash.com/photo-1584736286279-5d85e833eea6?q=80&w=2874&auto=format&fit=crop',
@@ -52,7 +52,7 @@ const recommendedItems = [
   {
     id: '6',
     name: 'Minimalist Watch',
-    brand: 'Tempus',
+    brand: 'Adidas',
     price: 5999,
     score: 79,
     image: 'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=2940&auto=format&fit=crop',
