@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Camera, CheckCircle, XCircle, UploadCloud } from 'lucide-react';
 import AnimatedButton from '../common/AnimatedButton';
 
@@ -7,10 +7,21 @@ const QRCodeAuthentication = () => {
   const [status, setStatus] = useState<'idle' | 'processing' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('Take a photo of the product QR code or design element');
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [uploadedFileName, setUploadedFileName] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileUploadClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+
+    // Save the filename
+    setUploadedFileName(file.name);
 
     // Create preview
     const reader = new FileReader();
@@ -44,6 +55,7 @@ const QRCodeAuthentication = () => {
     setStatus('idle');
     setMessage('Take a photo of the product QR code or design element');
     setImagePreview(null);
+    setUploadedFileName('');
   };
 
   return (
@@ -69,25 +81,35 @@ const QRCodeAuthentication = () => {
 
         <h3 className="text-xl font-semibold mb-2">AI-Enhanced QR Verification</h3>
         <p className="text-gray-500 mb-6">{message}</p>
+        
+        {uploadedFileName && status === 'idle' && (
+          <p className="text-xs text-green-600 mb-4">{uploadedFileName}</p>
+        )}
 
         {status === 'idle' ? (
           <div className="space-y-4">
-            <label className="block">
-              <input 
-                type="file" 
-                accept="image/*" 
-                className="hidden" 
-                onChange={handleFileUpload}
-              />
-              <AnimatedButton className="w-full">
-                <UploadCloud className="mr-2 h-4 w-4" />
-                Upload Image
-              </AnimatedButton>
-            </label>
+            <input 
+              type="file" 
+              ref={fileInputRef}
+              className="hidden" 
+              accept="image/*" 
+              onChange={handleFileUpload}
+            />
+            <AnimatedButton 
+              className="w-full"
+              onClick={handleFileUploadClick}
+            >
+              <UploadCloud className="mr-2 h-4 w-4" />
+              Upload Image
+            </AnimatedButton>
             <p className="text-xs text-gray-400">
               Or take a photo directly with your camera
             </p>
-            <AnimatedButton variant="outline" className="w-full">
+            <AnimatedButton 
+              variant="outline" 
+              className="w-full"
+              onClick={handleFileUploadClick}
+            >
               <Camera className="mr-2 h-4 w-4" />
               Take Photo
             </AnimatedButton>

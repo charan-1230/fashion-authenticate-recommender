@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Layout from '@/components/layout/Layout';
 import SectionHeading from '@/components/common/SectionHeading';
 import StyleProfile from '@/components/recommendation/StyleProfile';
@@ -62,6 +62,9 @@ const recommendedItems = [
 const Recommend = () => {
   const [activeTab, setActiveTab] = useState<'profile' | 'recommendations'>('profile');
   const [isLoading, setIsLoading] = useState(false);
+  const [uploadedFileName, setUploadedFileName] = useState('');
+  const outfitFileInputRef = useRef<HTMLInputElement>(null);
+  const bodyFileInputRef = useRef<HTMLInputElement>(null);
 
   const handleGenerateRecommendations = () => {
     setIsLoading(true);
@@ -69,6 +72,27 @@ const Recommend = () => {
       setIsLoading(false);
       setActiveTab('recommendations');
     }, 1500);
+  };
+
+  const handleOutfitUploadClick = () => {
+    if (outfitFileInputRef.current) {
+      outfitFileInputRef.current.click();
+    }
+  };
+
+  const handleBodyUploadClick = () => {
+    if (bodyFileInputRef.current) {
+      bodyFileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setUploadedFileName(file.name);
+      // For this demo, we're just displaying the filename
+      // A real implementation would upload and process the file
+    }
   };
 
   return (
@@ -132,12 +156,35 @@ const Recommend = () => {
                     Upload your photos for even more personalized style recommendations.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <div className="flex-1 border border-dashed border-gray-300 rounded-lg p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input 
+                      type="file" 
+                      ref={outfitFileInputRef} 
+                      className="hidden" 
+                      accept="image/*"
+                      onChange={handleFileChange}
+                    />
+                    <div 
+                      className="flex-1 border border-dashed border-gray-300 rounded-lg p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer"
+                      onClick={handleOutfitUploadClick}
+                    >
                       <Upload size={24} className="mx-auto mb-2 text-gray-400" />
                       <p className="text-sm font-medium">Upload Outfit Photo</p>
                       <p className="text-xs text-gray-500 mt-1">Get suggestions for similar styles</p>
+                      {uploadedFileName && (
+                        <p className="text-xs text-green-600 mt-2">{uploadedFileName}</p>
+                      )}
                     </div>
-                    <div className="flex-1 border border-dashed border-gray-300 rounded-lg p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer">
+                    <input 
+                      type="file" 
+                      ref={bodyFileInputRef} 
+                      className="hidden" 
+                      accept="image/*"
+                      onChange={handleFileChange}
+                    />
+                    <div 
+                      className="flex-1 border border-dashed border-gray-300 rounded-lg p-8 text-center hover:bg-gray-50 transition-colors cursor-pointer"
+                      onClick={handleBodyUploadClick}
+                    >
                       <Upload size={24} className="mx-auto mb-2 text-gray-400" />
                       <p className="text-sm font-medium">Upload Body Photo</p>
                       <p className="text-xs text-gray-500 mt-1">For precise fit recommendations</p>
