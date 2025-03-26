@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Smartphone, CheckCircle, XCircle } from 'lucide-react';
 import AnimatedButton from '../common/AnimatedButton';
@@ -11,18 +10,10 @@ const NFCAuthentication = () => {
     setStatus('scanning');
     setMessage('Scanning... Place your phone near the NFC tag on your product');
     
-    // Simulate NFC scanning process
+    // Simulate NFC scanning process - always succeeds
     setTimeout(() => {
-      // Random success/failure for demo purposes
-      const isSuccess = Math.random() > 0.3;
-      
-      if (isSuccess) {
-        setStatus('success');
-        setMessage('Authentication successful! This product is genuine.');
-      } else {
-        setStatus('error');
-        setMessage('Authentication failed. This product might be counterfeit.');
-      }
+      setStatus('success');
+      setMessage('Authentication successful! This product is genuine.');
     }, 2500);
   };
 

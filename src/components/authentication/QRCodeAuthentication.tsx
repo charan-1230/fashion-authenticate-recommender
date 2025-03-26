@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Camera, CheckCircle, XCircle, UploadCloud } from 'lucide-react';
 import AnimatedButton from '../common/AnimatedButton';
@@ -20,10 +19,8 @@ const QRCodeAuthentication = () => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Save the filename
     setUploadedFileName(file.name);
 
-    // Create preview
     const reader = new FileReader();
     reader.onload = () => {
       setImagePreview(reader.result as string);
@@ -36,18 +33,10 @@ const QRCodeAuthentication = () => {
     setStatus('processing');
     setMessage('Processing image... Analyzing product details');
     
-    // Simulate processing delay
+    // Always verify successfully after processing
     setTimeout(() => {
-      // Random success/failure for demo purposes
-      const isSuccess = Math.random() > 0.3;
-      
-      if (isSuccess) {
-        setStatus('success');
-        setMessage('Authentication successful! This product is genuine.');
-      } else {
-        setStatus('error');
-        setMessage('Authentication failed. AI could not verify the product.');
-      }
+      setStatus('success');
+      setMessage('Authentication successful! This product is genuine.');
     }, 3000);
   };
 
