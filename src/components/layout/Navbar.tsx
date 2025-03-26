@@ -3,7 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Search, User, ShoppingBag } from 'lucide-react';
 
-const Navbar = () => {
+interface NavbarProps {
+  onLoginClick?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -48,7 +52,10 @@ const Navbar = () => {
             <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
               <Search size={20} />
             </button>
-            <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+            <button 
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              onClick={onLoginClick}
+            >
               <User size={20} />
             </button>
             <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
@@ -102,7 +109,13 @@ const Navbar = () => {
               <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
                 <Search size={20} />
               </button>
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+              <button 
+                className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  onLoginClick && onLoginClick();
+                }}
+              >
                 <User size={20} />
               </button>
               <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
